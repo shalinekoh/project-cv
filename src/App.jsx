@@ -14,21 +14,14 @@ const App = () => {
                                     summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est aliquam, commodo urna non, egestas purus. Sed fringilla, nulla vitae gravida aliquet, lectus magna."
   })
 
-  const handleChange = (e) => {
-    const { name, value } = e.target; // Destructure the name and value properties from e.target
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value, // Use the name attribute to update the corresponding property in state
-    }));
-  };
-
+  const [experiences, setExperiences] = useState([])
 
   return (
     <div className="App">
       <h1>Resume Builder</h1>
-      <PersonalDataForm data={data} handleData={handleChange} />
-      <ExperienceForm />
-      <Resume data={data} />
+      <PersonalDataForm data={data} setData={setData} />
+      <ExperienceForm experiences={experiences} setExperiences={setExperiences} />
+      <Resume data={data} experiences={experiences} />
     </div>
   )
 

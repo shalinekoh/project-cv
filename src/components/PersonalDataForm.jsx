@@ -1,6 +1,14 @@
 import React from 'react';
 
-function PersonalDataForm({ data, handleData }){
+function PersonalDataForm({ data, setData }){
+    const handleData = (e) => {
+        const { name, value } = e.target; // Destructure the name and value properties from e.target
+        setData((prevData) => ({
+          ...prevData,
+          [name]: value, // Use the name attribute to update the corresponding property in state
+        }));
+      };
+
     return (
         <>
             <h2>Personal Info</h2>
