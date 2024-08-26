@@ -19,6 +19,11 @@ function Resume({ data, experiences }){
                     <h3>{exp.title}</h3>
                     <h4>{exp.company}</h4>
                     <h4>{exp.startDate + " - " + exp.endDate}</h4>
+                    <ul>
+                        {exp.description.map((res, index) => (
+                            <li key="index">{res}</li>
+                        ))}
+                    </ul>
                  </div>
             ))}
         </div>

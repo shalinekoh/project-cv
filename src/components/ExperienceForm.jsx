@@ -8,15 +8,31 @@ function ExperienceForm({ experiences, setExperiences }) {
         title: "",
         company: "",
         startDate: "",
-        endDate: ""})
+        endDate: "",
+        description: []})
+
 
     const handleChange = (e) => {
         const {name, value} = e.target;
+
         setExperience((prevExp) => ({
             ...prevExp,
             [name]: value
-
         }));
+    }
+    const [description, setDescription] = useState("")
+
+    const handleDescription = (e) => {
+        if (description.trim()){
+
+            setExperience((prevExp) => {
+                return {
+                    ...prevExp,
+                    description: [...prevExp.description, description]
+                }
+            })
+            setDescription("")
+        }
     }
 
     const handleSubmit = (e) => {
@@ -39,7 +55,8 @@ function ExperienceForm({ experiences, setExperiences }) {
             title: "",
             company: "",
             startDate: "",
-            endDate: ""})
+            endDate: "",
+            description: []})
     }
 
     const handleEdit = (id) => {
@@ -88,6 +105,20 @@ function ExperienceForm({ experiences, setExperiences }) {
                     placeholder="DD/MM/YYYY"
                     value={experience.endDate}
                     onChange={handleChange}/>
+                <label for="description">Key Responsibilities</label>
+                <input
+                    type="text"
+                    name="description"
+                    placeholder="Enter a responsibility & press '+' button to add"
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}/>
+                <button type="button" onClick={handleDescription}>+</button>
+                <ul>
+                    {experience.description.map((exp, index) => (
+                        <li key={index}>{exp}</li>
+                    ))}
+                </ul>
+
                 <button type="submit">{experience.id ? "Update Experience" : "Add Experience"}</button>
             </form>
 
@@ -97,6 +128,7 @@ function ExperienceForm({ experiences, setExperiences }) {
                     <p>{exp.title}</p>
                     <p>{exp.company}</p>
                     <p>{exp.startDate + " - " + exp.endDate}</p>
+                    <p>{exp.description}</p>
                     <button onClick={e => handleEdit(exp.id)}>Edit</button>
                     <button onClick={e => handleDelete(exp.id)}>Delete</button>
                 </li>
