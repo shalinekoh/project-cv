@@ -22,22 +22,26 @@ function ExperienceForm({ experiences, setExperiences }) {
     }
     const [description, setDescription] = useState("")
 
+
     const handleDescription = (e) => {
-        if (description.trim()){
-            setExperience((prevExp) => ({
-                    ...prevExp,
-                    responsibilities: [
-                        ...prevExp.responsibilities,
-                        {text: description, id: crypto.randomUUID() }
-                    ],
-                }));
-            setDescription("");
-        }
+        setExperience((prevExp) => ({
+                ...prevExp,
+                responsibilities: [
+                    ...prevExp.responsibilities,
+                    {text: description, id: crypto.randomUUID() }
+                ],
+            }));
+        setDescription("");
     };
+
+    const handleDescriptionEdit = (id) => {
+        const result = experience.responsibilities.find(res => res.id === id)
+        setDescription(result.text)
+        handleDescriptionDelete(id)
+    }
 
     const handleDescriptionDelete = (id) => {
         setExperience((currentExp) => ({
-
                 ...currentExp,
                 responsibilities: currentExp.responsibilities.filter((des) => des.id !== id)
         }))
@@ -125,7 +129,7 @@ function ExperienceForm({ experiences, setExperiences }) {
                     {experience.responsibilities.map((des) => (
                         <li key={des.id}>
                             {des.text}
-                            <button type="button">Edit</button>
+                            <button type="button" onClick={() => handleDescriptionEdit(des.id)}>Edit</button>
                             <button type="button" onClick={() => handleDescriptionDelete(des.id)}>Delete</button>
                         </li>
                     ))}
