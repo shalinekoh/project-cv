@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../styles/EducationForm.css'
 
 function EducationForm( {educations, setEducations }){
     const [education, setEducation] = useState({
@@ -75,6 +76,14 @@ function EducationForm( {educations, setEducations }){
         setInfo("")
     }
 
+    const handleEdit = (id) => {
+        setEducation(educations.find(edu => edu.id === id))
+    }
+
+    const handleDelete = (id) => {
+        setEducations((currentEdus) => currentEdus.filter(edu => edu.id !== id))
+    }
+
     return (
         <form onSubmit={handleSubmit}>
             <h2>Education</h2>
@@ -140,7 +149,9 @@ function EducationForm( {educations, setEducations }){
                             <p>{edu.uni}</p>
                             <p>{edu.degree}</p>
                             <p>{edu.startDate + " - " + edu.endDate}</p>
-
+                            <p>{edu.info.map(d => <span key={d.id}>{d.text}</span>)}</p>
+                            <button onClick={e => handleEdit(edu.id)}>Edit</button>
+                            <button onClick={e => handleDelete(edu.id)}>Delete</button>
                         </li>
                     })}
                 </ul>

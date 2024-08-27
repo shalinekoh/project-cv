@@ -4,6 +4,7 @@ import ExperienceForm from './components/ExperienceForm';
 import PersonalDataForm from './components/PersonalDataForm';
 import SkillsForm from './components/SkillsForm';
 import Resume from './components/Resume';
+import './App.css'
 
 const App = () => {
   const [data, setData] = useState({

@@ -1,0 +1,54 @@
+/* Resume.css */
+
+h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+h4 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.contactInfo {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+}
+
+.contactInfo p {
+    margin: 5px 0;
+}
+
+p {
+    margin: 5px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    background-color: #eee;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 4px;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../styles/SkillsForm.css'
 
 function SkillsForm( { skills, addSkills } ) {
     const [skill, setSkill] = useState("")
@@ -21,6 +22,10 @@ function SkillsForm( { skills, addSkills } ) {
         addSkills((currentSkills) => currentSkills.filter(skill => skill.id !== id))
     }
 
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    // }
+
     return (
         <form>
             <h2>Skills</h2>
@@ -41,7 +46,8 @@ function SkillsForm( { skills, addSkills } ) {
                             <button type="button" onClick={() => handleSkillDelete(skill.id)}>Delete</button>
                         </li>
                     ))}
-                </ul>
+            </ul>
+            {/* <button type="submit">Add Skills</button> */}
         </form>
     )
 }

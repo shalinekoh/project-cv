@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/PersonalDataForm.css'
 
 function PersonalDataForm({ data, setData }){
     const handleData = (e) => {

@@ -1,14 +1,14 @@
 import React from 'react';
-import SkillsForm from './SkillsForm';
+import '../styles/Resume.css'
 
 function Resume({ data, experiences, educations, skills }){
     return (
         <div>
             <h1>{data.firstName + " " + data.lastName}</h1>
             <div className="contactInfo">
-                {data.phoneNo}
-                {data.email}
-                {data.location}
+                <p>{data.phoneNo}</p>
+                <p>{data.email}</p>
+                <p>{data.location}</p>
             </div>
             <h2>{data.title}</h2>
             <p>{data.summary}</p>
