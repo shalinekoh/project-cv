@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import EducationForm from './components/EducationForm';
 import ExperienceForm from './components/ExperienceForm';
 import PersonalDataForm from './components/PersonalDataForm';
 import Resume from './components/Resume';
@@ -14,14 +15,17 @@ const App = () => {
                                     summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est aliquam, commodo urna non, egestas purus. Sed fringilla, nulla vitae gravida aliquet, lectus magna."
   })
 
-  const [experiences, setExperiences] = useState([])
+  const [experiences, setExperiences] = useState([]);
+
+  const [educations, setEducations] = useState([]);
 
   return (
     <div className="App">
       <h1>Resume Builder</h1>
       <PersonalDataForm data={data} setData={setData} />
       <ExperienceForm experiences={experiences} setExperiences={setExperiences} />
-      <Resume data={data} experiences={experiences} />
+      <EducationForm educations={educations} setEducations={setEducations} />
+      <Resume data={data} experiences={experiences} educations={educations}/>
     </div>
   )
 

@@ -85,7 +85,7 @@ function ExperienceForm({ experiences, setExperiences }) {
         <div>
             <form onSubmit={handleSubmit}>
                 <h2>Professional Experience</h2>
-                <label for="title">Title/Position</label>
+                <label htmlFor="title">Title/Position</label>
                 <input
                     type="text"
                     name="title"
@@ -93,7 +93,7 @@ function ExperienceForm({ experiences, setExperiences }) {
                     placeholder="Software Engineer"
                     value={experience.title}
                     onChange={handleChange}/>
-                <label for="company">Company</label>
+                <label htmlFor="company">Company</label>
                 <input
                     type="text"
                     name="company"
@@ -101,7 +101,7 @@ function ExperienceForm({ experiences, setExperiences }) {
                     placeholder="The Odin Company"
                     value={experience.company}
                     onChange={handleChange}/>
-                <label for="startDate">Start Date</label>
+                <label htmlFor="startDate">Start Date</label>
                 <input
                     type="text"
                     name="startDate"
@@ -109,7 +109,7 @@ function ExperienceForm({ experiences, setExperiences }) {
                     placeholder="DD/MM/YYYY"
                     value={experience.startDate}
                     onChange={handleChange}/>
-                <label for="endDate">End Date</label>
+                <label htmlFor="endDate">End Date</label>
                 <input
                     type="text"
                     name="endDate"
@@ -117,7 +117,7 @@ function ExperienceForm({ experiences, setExperiences }) {
                     placeholder="DD/MM/YYYY"
                     value={experience.endDate}
                     onChange={handleChange}/>
-                <label for="description">Key Responsibilities</label>
+                <label htmlFor="description">Key Responsibilities</label>
                 <input
                     type="text"
                     name="description"
