@@ -1,6 +1,7 @@
 import React from 'react';
+import SkillsForm from './SkillsForm';
 
-function Resume({ data, experiences, educations }){
+function Resume({ data, experiences, educations, skills }){
     return (
         <div>
             <h1>{data.firstName + " " + data.lastName}</h1>
@@ -39,6 +40,14 @@ function Resume({ data, experiences, educations }){
                         ))}
                     </ul>
                 </div>
+            ))
+            }
+
+            <h2>Skills</h2>
+            {skills.map((skill) => (
+                <li key={skill.id}>
+                    {skill.text}
+                </li>
             ))}
         </div>
     );

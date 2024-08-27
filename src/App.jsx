@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import EducationForm from './components/EducationForm';
 import ExperienceForm from './components/ExperienceForm';
 import PersonalDataForm from './components/PersonalDataForm';
+import SkillsForm from './components/SkillsForm';
 import Resume from './components/Resume';
 
 const App = () => {
@@ -19,13 +20,16 @@ const App = () => {
 
   const [educations, setEducations] = useState([]);
 
+  const [skills, addSkills] = useState([]);
+
   return (
     <div className="App">
       <h1>Resume Builder</h1>
       <PersonalDataForm data={data} setData={setData} />
       <ExperienceForm experiences={experiences} setExperiences={setExperiences} />
       <EducationForm educations={educations} setEducations={setEducations} />
-      <Resume data={data} experiences={experiences} educations={educations}/>
+      <SkillsForm skills={skills} addSkills={addSkills} />
+      <Resume data={data} experiences={experiences} educations={educations} skills={skills}/>
     </div>
   )
 
