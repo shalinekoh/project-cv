@@ -9,7 +9,7 @@ function ExperienceForm({ experiences, setExperiences }) {
         company: "",
         startDate: "",
         endDate: "",
-        description: []})
+        responsibilities: []})
 
 
     const handleChange = (e) => {
@@ -24,15 +24,23 @@ function ExperienceForm({ experiences, setExperiences }) {
 
     const handleDescription = (e) => {
         if (description.trim()){
-
-            setExperience((prevExp) => {
-                return {
+            setExperience((prevExp) => ({
                     ...prevExp,
-                    description: [...prevExp.description, description]
-                }
-            })
-            setDescription("")
+                    responsibilities: [
+                        ...prevExp.responsibilities,
+                        {text: description, id: crypto.randomUUID() }
+                    ],
+                }));
+            setDescription("");
         }
+    };
+
+    const handleDescriptionDelete = (id) => {
+        setExperience((currentExp) => ({
+
+                ...currentExp,
+                responsibilities: currentExp.responsibilities.filter((des) => des.id !== id)
+        }))
     }
 
     const handleSubmit = (e) => {
@@ -56,7 +64,9 @@ function ExperienceForm({ experiences, setExperiences }) {
             company: "",
             startDate: "",
             endDate: "",
-            description: []})
+            responsibilities: []
+        })
+        setDescription("");
     }
 
     const handleEdit = (id) => {
@@ -64,9 +74,7 @@ function ExperienceForm({ experiences, setExperiences }) {
     }
 
     const handleDelete = (id) => {
-        setExperiences((currentExps) => {
-            return currentExps.filter(exp => exp.id !== id)
-        } )
+        setExperiences((currentExps) => currentExps.filter(exp => exp.id !== id))
     }
 
     return (
@@ -114,26 +122,29 @@ function ExperienceForm({ experiences, setExperiences }) {
                     onChange={e => setDescription(e.target.value)}/>
                 <button type="button" onClick={handleDescription}>+</button>
                 <ul>
-                    {experience.description.map((exp, index) => (
-                        <li key={index}>{exp}</li>
+                    {experience.responsibilities.map((des) => (
+                        <li key={des.id}>
+                            {des.text}
+                            <button type="button">Edit</button>
+                            <button type="button" onClick={() => handleDescriptionDelete(des.id)}>Delete</button>
+                        </li>
                     ))}
                 </ul>
 
                 <button type="submit">{experience.id ? "Update Experience" : "Add Experience"}</button>
             </form>
-
-            {experiences.map((exp) => (
-
-                <li key={exp.id}>
-                    <p>{exp.title}</p>
-                    <p>{exp.company}</p>
-                    <p>{exp.startDate + " - " + exp.endDate}</p>
-                    <p>{exp.description}</p>
-                    <button onClick={e => handleEdit(exp.id)}>Edit</button>
-                    <button onClick={e => handleDelete(exp.id)}>Delete</button>
-                </li>
-
-            ))}
+            <ul>
+                {experiences.map((exp) => (
+                    <li key={exp.id}>
+                        <p>{exp.title}</p>
+                        <p>{exp.company}</p>
+                        <p>{exp.startDate + " - " + exp.endDate}</p>
+                        <p>{exp.responsibilities.map(d => <span key={d.id}>{d.text}</span>)}</p>
+                        <button onClick={e => handleEdit(exp.id)}>Edit</button>
+                        <button onClick={e => handleDelete(exp.id)}>Delete</button>
+                    </li>
+                ))}
+             </ul>
         </div>
     )
 }

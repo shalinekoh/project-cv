@@ -20,8 +20,8 @@ function Resume({ data, experiences }){
                     <h4>{exp.company}</h4>
                     <h4>{exp.startDate + " - " + exp.endDate}</h4>
                     <ul>
-                        {exp.description.map((res, index) => (
-                            <li key="index">{res}</li>
+                        {exp.responsibilities.map((res) => (
+                            <li key={res.id}>{res.text}</li>
                         ))}
                     </ul>
                  </div>
