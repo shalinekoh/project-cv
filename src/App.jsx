@@ -8,10 +8,10 @@ import './App.css'
 
 const App = () => {
   const [data, setData] = useState({
-                                    firstName: "Jane",
-                                    lastName: "Doe",
+                                    firstName: "Shaline",
+                                    lastName: "Koh",
                                     phoneNo: "+0123456789",
-                                    email: "janedoe@gmail.com",
+                                    email: "kohshaline@gmail.com",
                                     location: "Kuala Lumpur, Malaysia",
                                     title: "Software Engineer",
                                     summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est aliquam, commodo urna non, egestas purus. Sed fringilla, nulla vitae gravida aliquet, lectus magna."

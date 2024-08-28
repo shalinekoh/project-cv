@@ -16,14 +16,14 @@ function PersonalDataForm({ data, setData }){
             <label htmlFor="firstName">First Name</label>
             <input
                 type="text"
-                placeholder="Jane"
+                placeholder="Shaline"
                 name="firstName"
                 value={data.firstName}
                 onChange={handleData}/>
             <label htmlFor="lastName">Last Name</label>
             <input
                 type="text"
-                placeholder="Doe"
+                placeholder="Koh"
                 name="lastName"
                 value={data.lastName}
                 onChange={handleData}/>
@@ -37,7 +37,7 @@ function PersonalDataForm({ data, setData }){
             <label htmlFor="email">Email</label>
             <input
                 type="email"
-                placeholder="janedoe@gmail.com"
+                placeholder="kohshaline@gmail.com"
                 name="email"
                 value={data.email}
                 onChange={handleData}/>
