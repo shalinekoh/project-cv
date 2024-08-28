@@ -118,37 +118,47 @@ function ExperienceForm({ experiences, setExperiences }) {
                     value={experience.endDate}
                     onChange={handleChange}/>
                 <label htmlFor="description">Key Responsibilities</label>
-                <input
-                    type="text"
-                    name="description"
-                    placeholder="Enter a responsibility & press '+' button to add"
-                    value={description}
-                    onChange={e => setDescription(e.target.value)}/>
-                <button type="button" onClick={handleDescription}>+</button>
+                <div className="info">
+                    <input
+                        type="text"
+                        name="description"
+                        placeholder="Enter a responsibility & press '+' button to add"
+                        value={description}
+                        onChange={e => setDescription(e.target.value)}/>
+                    <button type="button" onClick={handleDescription}>+</button>
+                </div>
                 <ul>
                     {experience.responsibilities.map((des) => (
                         <li key={des.id}>
                             {des.text}
-                            <button type="button" onClick={() => handleDescriptionEdit(des.id)}>Edit</button>
-                            <button type="button" onClick={() => handleDescriptionDelete(des.id)}>Delete</button>
+                            <div id="infoBtn">
+                                <button type="button" onClick={() => handleDescriptionEdit(des.id)}>Edit</button>
+                                <button type="button" onClick={() => handleDescriptionDelete(des.id)}>Delete</button>
+                            </div>
                         </li>
                     ))}
                 </ul>
 
-                <button type="submit">{experience.id ? "Update Experience" : "Add Experience"}</button>
+                <div className="submit-button-container">
+                    <button type="submit" className="submit-button">
+                        {experience.id ? "Update Experience" : "Add Experience"}
+                    </button>
+                    </div>
+                <ul>
+                    {experiences.map((exp) => (
+                        <li key={exp.id}>
+                            <p>{exp.title}</p>
+                            {/* <p>{exp.company}</p> */}
+                            <p>{exp.startDate + " - " + exp.endDate}</p>
+                            {/* <p>{exp.responsibilities.map(d => <span key={d.id}>{d.text}</span>)}</p> */}
+                            <div id="infoBtn">
+                                <button onClick={e => handleEdit(exp.id)}>Edit</button>
+                                <button onClick={e => handleDelete(exp.id)}>Delete</button>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             </form>
-            <ul>
-                {experiences.map((exp) => (
-                    <li key={exp.id}>
-                        <p>{exp.title}</p>
-                        <p>{exp.company}</p>
-                        <p>{exp.startDate + " - " + exp.endDate}</p>
-                        <p>{exp.responsibilities.map(d => <span key={d.id}>{d.text}</span>)}</p>
-                        <button onClick={e => handleEdit(exp.id)}>Edit</button>
-                        <button onClick={e => handleDelete(exp.id)}>Delete</button>
-                    </li>
-                ))}
-             </ul>
         </div>
     )
 }

@@ -42,6 +42,23 @@ button {
     transition: background-color 0.3s;
 }
 
+#infoBtn button {
+    margin-right: 10px;
+}
+
+.submit-button-container {
+    display: flex;          /* Creates a flex container */
+    justify-content: center; /* Centers child elements horizontally */
+    margin-top: 20px;        /* Adds some space above the button */
+}
+
+.submit-button {
+    background-color: #007bff;
+    padding: 10px 20px;     /* Padding for the button */
+    font-size: 1rem;        /* Font size for the button text */
+    cursor: pointer;        /* Cursor pointer for better UX */
+}
+
 button:hover {
     background-color: #0056b3;
 }
@@ -53,10 +70,33 @@ ul {
 
 li {
     background-color: #eee;
+    color: black;
     padding: 10px;
     margin: 5px 0;
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* margin-bottom: 10px; */
+    justify-content: center;
+    /* align-content: center; */
+}
+
+.info input {
+    flex-grow: 1;           /* Allows the input to take available space */
+    padding: 5px;           /* Adds padding for better spacing */
+    font-size: 1rem;
+}
+
+.info button {
+    padding: 5px 10px;      /* Adds padding for better click area */
+    font-size: 1rem;        /* Adjusts font size */
+    cursor: pointer;
+    margin-bottom: 15px;
 }

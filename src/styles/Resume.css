@@ -9,18 +9,21 @@ h1 {
 h2 {
     font-size: 1.5rem;
     color: #444;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 
 h3 {
     font-size: 1.2rem;
     color: #555;
-    margin-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 15px;
 }
 
 h4 {
     font-size: 1rem;
     color: #666;
+    margin-top: 0px;
     margin-bottom: 5px;
 }
 
@@ -39,9 +42,11 @@ h4 {
 
 p {
     margin: 5px 0;
+    color: black;
 }
 
 ul {
+    /* display: flex; */
     list-style-type: none;
     padding-left: 0;
 }
@@ -51,4 +56,14 @@ li {
     padding: 5px;
     margin: 5px 0;
     border-radius: 4px;
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill-container {
+    display: flex;
+    gap: 20px;
 }

@@ -17,11 +17,13 @@ function Resume({ data, experiences, educations, skills }){
             {experiences.map((exp, index) => (
                 <div key={index}>
                     <h3>{exp.title}</h3>
-                    <h4>{exp.company}</h4>
-                    <h4>{exp.startDate + " - " + exp.endDate}</h4>
+                    <div className="info-container">
+                        <h4>{exp.company}</h4>
+                        <h4>{exp.startDate + " - " + exp.endDate}</h4>
+                    </div>
                     <ul>
                         {exp.responsibilities.map((res) => (
-                            <li key={res.id}>{res.text}</li>
+                            <li key={res.id}>• {res.text}</li>
                         ))}
                     </ul>
                  </div>
@@ -32,11 +34,13 @@ function Resume({ data, experiences, educations, skills }){
             {educations.map((edu, index) => (
                 <div key={index}>
                     <h3>{edu.degree}</h3>
-                    <h4>{edu.uni}</h4>
-                    <h4>{edu.startDate + " - " + edu.endDate}</h4>
+                    <div className="info-container">
+                        <h4>{edu.uni}</h4>
+                        <h4>{edu.startDate + " - " + edu.endDate}</h4>
+                    </div>
                     <ul>
                         {edu.info.map((res) => (
-                            <li key={res.id}>{res.text}</li>
+                            <li key={res.id}>• {res.text}</li>
                         ))}
                     </ul>
                 </div>
@@ -44,11 +48,13 @@ function Resume({ data, experiences, educations, skills }){
             }
 
             <h2>Skills</h2>
-            {skills.map((skill) => (
-                <li key={skill.id}>
-                    {skill.text}
-                </li>
-            ))}
+            <ul className="skill-container">
+                {skills.map((skill) => (
+                    <li key={skill.id}>
+                        {skill.text}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };

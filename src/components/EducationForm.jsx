@@ -85,77 +85,83 @@ function EducationForm( {educations, setEducations }){
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Education</h2>
-            <label htmlFor="uni">University</label>
-            <input
-                name="uni"
-                type="text"
-                placeholder="University of Odin"
-                required
-                value={education.uni}
-                onChange={handleChange}
-            />
-            <label htmlFor="degree">Degree</label>
-            <input
-                name="degree"
-                type="text"
-                placeholder="Bachelor of Computer Science"
-                required
-                value={education.degree}
-                onChange={handleChange}
-            />
-            <label htmlFor="startDate">Start Date</label>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <h2>Education</h2>
+                <label htmlFor="uni">University</label>
                 <input
+                    name="uni"
                     type="text"
-                    name="startDate"
+                    placeholder="University of Odin"
                     required
-                    placeholder="DD/MM/YYYY"
-                    value={education.startDate}
+                    value={education.uni}
                     onChange={handleChange}
                 />
-                <label htmlFor="endDate">End Date</label>
+                <label htmlFor="degree">Degree</label>
                 <input
+                    name="degree"
                     type="text"
-                    name="endDate"
+                    placeholder="Bachelor of Computer Science"
                     required
-                    placeholder="DD/MM/YYYY"
-                    value={education.endDate}
+                    value={education.degree}
                     onChange={handleChange}
                 />
-                <label htmlFor="info">Additional Information</label>
-                <input
-                    type="text"
-                    name="info"
-                    placeholder="Enter extra info here"
-                    value={info}
-                    onChange={e => setInfo(e.target.value)}
-                />
-                <button type="button" onClick={addInfo}>+</button>
-
-                {education.info.map((info) => (
-                    <li key={info.id}>
-                        {info.text}
-                        <button type="button" onClick={() => handleInfoEdit(info.id)}>Edit</button>
-                        <button type="button" onClick={() => handleInfoDelete(info.id)}>Delete</button>
-                    </li>
-                    ))
-                }
-                <button type="submit">Add Education</button>
-
-                <ul>
-                    {educations.map((edu) => {
-                        <li key={edu.id}>
-                            <p>{edu.uni}</p>
-                            <p>{edu.degree}</p>
-                            <p>{edu.startDate + " - " + edu.endDate}</p>
-                            <p>{edu.info.map(d => <span key={d.id}>{d.text}</span>)}</p>
-                            <button onClick={e => handleEdit(edu.id)}>Edit</button>
-                            <button onClick={e => handleDelete(edu.id)}>Delete</button>
+                <label htmlFor="startDate">Start Date</label>
+                    <input
+                        type="text"
+                        name="startDate"
+                        required
+                        placeholder="DD/MM/YYYY"
+                        value={education.startDate}
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="endDate">End Date</label>
+                    <input
+                        type="text"
+                        name="endDate"
+                        required
+                        placeholder="DD/MM/YYYY"
+                        value={education.endDate}
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="info">Additional Information</label>
+                    <div className="info">
+                        <input
+                            type="text"
+                            name="info"
+                            placeholder="Enter extra info here"
+                            value={info}
+                            onChange={e => setInfo(e.target.value)}
+                        />
+                        <button type="button" onClick={addInfo}>+</button>
+                    </div>
+                    {education.info.map((info) => (
+                        <li key={info.id}>
+                            {info.text}
+                            <div id="infoBtn">
+                                <button type="button" onClick={() => handleInfoEdit(info.id)}>Edit</button>
+                                <button type="button" onClick={() => handleInfoDelete(info.id)}>Delete</button>
+                            </div>
                         </li>
-                    })}
-                </ul>
-        </form>
+                        ))
+                    }
+                    <div className="submit-button-container">
+                        <button type="submit" className="submit-button">Add Education</button>
+                    </div>
+                    <ul>
+                        {educations.map((edu) => (
+                            <li key={edu.id}>
+                                <p>{edu.degree}</p>
+                                {/* <p>{edu.startDate + " - " + edu.endDate}</p> */}
+                                <div id="infoBtn">
+                                    <button onClick={e => handleEdit(edu.id)}>Edit</button>
+                                    <button onClick={e => handleDelete(edu.id)}>Delete</button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+            </form>
+        </div>
     )
 }
 

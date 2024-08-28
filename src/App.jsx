@@ -26,11 +26,17 @@ const App = () => {
   return (
     <div className="App">
       <h1>Resume Builder</h1>
-      <PersonalDataForm data={data} setData={setData} />
-      <ExperienceForm experiences={experiences} setExperiences={setExperiences} />
-      <EducationForm educations={educations} setEducations={setEducations} />
-      <SkillsForm skills={skills} addSkills={addSkills} />
-      <Resume data={data} experiences={experiences} educations={educations} skills={skills}/>
+      <div className="container">
+        <div className="forms-container">
+          <PersonalDataForm data={data} setData={setData} />
+          <ExperienceForm experiences={experiences} setExperiences={setExperiences} />
+          <EducationForm educations={educations} setEducations={setEducations} />
+          <SkillsForm skills={skills} addSkills={addSkills} />
+        </div>
+        <div className="resume-container">
+          <Resume data={data} experiences={experiences} educations={educations} skills={skills}/>
+        </div>
+      </div>
     </div>
   )
 

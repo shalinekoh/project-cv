@@ -11,7 +11,7 @@ function PersonalDataForm({ data, setData }){
       };
 
     return (
-        <>
+        <form>
             <h2>Personal Info</h2>
             <label htmlFor="firstName">First Name</label>
             <input
@@ -62,7 +62,7 @@ function PersonalDataForm({ data, setData }){
                 cols="50"
                 value={data.summary}
                 onChange={handleData}/>
-        </>
+        </form>
     )
 }
 

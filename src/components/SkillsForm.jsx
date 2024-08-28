@@ -30,20 +30,24 @@ function SkillsForm( { skills, addSkills } ) {
         <form>
             <h2>Skills</h2>
             <label htmlFor="skills">Skill(s)</label>
-            <input
-                name="skills"
-                type="text"
-                placeholder="Enter a skill"
-                value={skill}
-                onChange={e => setSkill(e.target.value)}
-            />
-            <button type="button" onClick={handleSkill}>+</button>
+            <div className="info">
+                <input
+                    name="skills"
+                    type="text"
+                    placeholder="Enter a skill"
+                    value={skill}
+                    onChange={e => setSkill(e.target.value)}
+                />
+                <button type="button" onClick={handleSkill}>+</button>
+            </div>
             <ul>
                     {skills.map((skill) => (
                         <li key={skill.id}>
                             {skill.text}
-                            <button type="button" onClick={() => handleSkillEdit(skill.id)}>Edit</button>
-                            <button type="button" onClick={() => handleSkillDelete(skill.id)}>Delete</button>
+                            <div id="infoBtn">
+                                <button type="button" onClick={() => handleSkillEdit(skill.id)}>Edit</button>
+                                <button type="button" onClick={() => handleSkillDelete(skill.id)}>Delete</button>
+                            </div>
                         </li>
                     ))}
             </ul>
